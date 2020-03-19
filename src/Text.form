@@ -30,12 +30,12 @@
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <component id="39e55" class="javax.swing.JButton" binding="GREJER3Button" default-binding="true">
+      <component id="39e55" class="javax.swing.JButton" binding="SCROLLFOROPENButton" default-binding="true">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="GREJER3"/>
+          <text value="SCROLLFOROPEN"/>
         </properties>
       </component>
       <component id="5c5dc" class="javax.swing.JButton" binding="GREJER4Button" default-binding="true">
@@ -62,7 +62,7 @@
           <text value="GREJER7"/>
         </properties>
       </component>
-      <component id="1f454" class="javax.swing.JButton" binding="GREJER2Button" default-binding="true">
+      <component id="1f454" class="javax.swing.JButton" binding="SCROLLFORSAVE" custom-create="true">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
