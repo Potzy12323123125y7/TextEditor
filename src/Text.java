@@ -7,51 +7,40 @@ import java.util.Scanner;
 public class Text {
 
 
-    private Text() {
-        panel1.addKeyListener(new KeyAdapter() {
+    public Text() {
+
+
+
+
+        CLICKFORSAVEButton.addMouseWheelListener(new MouseWheelListener() {
+                                                     @Override
+                                                     public void mouseWheelMoved(MouseWheelEvent mouseWheelEvent) {
+
+                                                         String aktuellMapp = System.getProperty("user.dir");
+                                                         JFileChooser fc = new JFileChooser((aktuellMapp));
+                                                         int resultat = fc.showSaveDialog(null);
+                                                         if (resultat != JFileChooser.APPROVE_OPTION) {
+                                                             System.out.println("ingen fil valdes");
+                                                             System.exit(0);
+                                                         }
+                                                         String filnamn = fc.getSelectedFile().getAbsolutePath();
+                                                         try {
+                                                             PrintWriter inström = new PrintWriter(new BufferedWriter(new FileWriter(filnamn)));
+                                                             inström.print(textArea1.getText());
+                                                             inström.close();
+
+
+
+
+                                                         } catch (IOException e) {
+                                                             e.printStackTrace();
+                                                         }
+
+
+                                                     }
         });
-        DO_NOT_SPAMButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                for (int i = 0; i < 3; i++) {
-                    String text = textArea1.getText();
-                    textArea1.append(text);
-                }
-            }
-        });
 
-
-        SCROLLFORSAVE.addMouseWheelListener(new MouseWheelListener() {
-                                                @Override
-                                                public void mouseWheelMoved(MouseWheelEvent mouseWheelEvent) {
-
-                                                    String aktuellMapp = System.getProperty("user.dir");
-                                                    JFileChooser fc = new JFileChooser((aktuellMapp));
-                                                    int resultat = fc.showSaveDialog(null);
-                                                    if (resultat != JFileChooser.APPROVE_OPTION) {
-                                                        System.out.println("Ingen fil valdes");
-                                                        System.exit(0);
-                                                    }
-                                                    String filnamn = fc.getSelectedFile().getAbsolutePath();
-                                                    try {
-                                                        PrintWriter inström = new PrintWriter(new BufferedWriter(new FileWriter(filnamn)));
-                                                        while (true) {
-                                                            String rad = inström.print();
-                                                            if (rad == null)
-                                                                break;
-                                                            textArea1.append(rad);
-                                                        }
-                                                    } catch (FileNotFoundException e) {
-                                                        e.printStackTrace();
-                                                    } catch (IOException e) {
-                                                        e.printStackTrace();
-                                                    }
-
-                                                }
-                                            }
-        );
-
-        SCROLLFOROPENButton.addActionListener(new ActionListener() {
+        CLICKFOROPENButton.addActionListener(new ActionListener() {
                                                   @Override
                                                   public void actionPerformed(ActionEvent actionEvent) {
                                                       JFileChooser fc = new JFileChooser();
@@ -78,6 +67,15 @@ public class Text {
                                                   }
                                               }
         );
+        CLICKFORCRASHButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                for (int i = 0; i < 3; i++) {
+                    String text = textArea1.getText();
+                    textArea1.append(text);
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -95,10 +93,12 @@ public class Text {
     private JButton GREJER7Button;
     private JButton GREJER4Button;
     private JButton GREJER6Button;
-    private JButton DO_NOT_SPAMButton;
     private JButton GREJER5Button;
     private JSpinner spinner1;
     private JTextArea textArea1;
+    private JButton CLICKFORSAVEButton;
+    private JButton CLICKFOROPENButton;
+    private JButton CLICKFORCRASHButton;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
